@@ -1,0 +1,96 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    background-color: rgb(158, 25, 54);
+    color: white;
+    margin-top: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    width: 400px;
+    padding: 10px;
+}
+
+/* Login box */
+.div2 {
+    width: 350px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 3px solid #c94985;
+    border-radius: 10px;
+    background-image: url("https://jooinn.com/images/nature-338.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Form layout */
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.form label {
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 3px 6px;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+/* Inputs */
+.username,
+.password {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: none;
+}
+
+/* Password container */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Space for eye */
+.password {
+    padding-right: 40px;
+}
+
+/* Eye button */
+.toggle-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Submit button */
+.form button[type="submit"] {
+    margin-top: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+}
+

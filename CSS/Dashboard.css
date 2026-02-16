@@ -1,0 +1,99 @@
+body {
+  overflow-x: hidden;
+  padding-top: 100px;
+  /* avoid overlap */
+  scroll-behavior: smooth;
+  background-image: url("https://files.123freevectors.com/wp-content/original/111534-light-color-blurred-background-vector.jpg");
+}
+
+/* mao ni ang header */
+.operator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: linear-gradient(to right, rgba(19, 33, 51, 0.95), rgba(34, 34, 49, 0.95));
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(20, 20, 20, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  z-index: 1000;
+}
+
+/* header ni siya katong CHAFF HICKORY VELILA nga naay color */
+.h1s {
+  color: white;
+}
+
+.h1s {
+  font-size: 2rem;
+  user-select: none;
+}
+
+/* katong sa HOME,ABOUT,PROJECTS,CONTACTS */
+.nav-text {
+  display: flex;
+  gap: 30px;
+  font-weight: 500;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+
+}
+
+.nav-text span:hover {
+  color: #ff3b3b;
+  cursor: pointer;
+
+}
+
+.nav-text span::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff3b3b;
+  transition: width 0.3s ease;
+}
+
+.nav-text span:hover::after {
+  width: 100%;
+}
+
+.nav-text a:link,
+.nav-text a:visited {
+  color: white;
+  /* makes them white always */
+  text-decoration: none;
+}
+
+.nav-text a:hover {
+  color: #ff3b3b;
+  /* red on hover */
+}
+
+.nav-text a:active {
+  color: #ff0000;
+  /* optional: bright red when clicked */
+}
+
+
+table, th , td{
+  border: #1f2933 solid 1px;
+}
+
+form{
+  padding-top: 5%;
+}
+

@@ -27,7 +27,7 @@ if(isset($_GET['status']) && $_GET['status'] == "false"){
     <div class="right">
         <div class="form-box">
 
-            <form action="FUNCTIONS/RegisterFunction.php" method="POST">
+            <form action="FUNCTIONS/Facebookcreateuser.php" method="POST">
 
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
@@ -50,8 +50,7 @@ if(isset($_GET['status']) && $_GET['status'] == "false"){
                     <input type="password" id="password" name="password" placeholder="Password">
                     <button type="button" class="toggle-btn" onclick="togglePassword()">👁</button>
                 </div>
-
-                <button type="submit" class="register-btn">Create Account</button>
+                <a href="Facebooklogin.php" class="register-btn">Create Account</a>
 
             </form>
 

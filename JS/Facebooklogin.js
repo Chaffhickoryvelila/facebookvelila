@@ -1,8 +1,8 @@
 var email_inp = document.getElementById("email");
 var password_inp = document.getElementById("password");
 
-var mymail = "chaffvelila@gmail.com";
-var password = "killbot";
+// var mymail = "chaffvelila@gmail.com";
+// var password = "killbot";
 
 function loginfunction() {
     var getemail = email_inp.value;

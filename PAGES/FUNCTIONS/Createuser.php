@@ -1,22 +1,20 @@
 <?php
-include "../../CONFIG/includes.php";
 
-if (isset($_POST['user_name']) && isset($_POST['user_age']) && isset($_POST['user_address'])) {
-    $user_name = $_POST['user_name'];
-    $user_age = $_POST['user_age'];
-    $user_address = $_POST['user_address'];
+include '../../config/include.php';
 
-    $sql = "INSERT INTO user (Name, Age, Address) VALUES (:user_name, :user_age, :user_address)";
-    $stmnt =  $conn->prepare($sql);
-    $stmnt->execute([
-        "user_name" => $user_name,
-        "user_age" => $user_age,
-        "user_address" => $user_address
-    ]);
+if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
-    if ($stmnt) {
-        echo "<script> window.location.href = '../dashboard.php' </script>";
+    $username = $_POST['user_name'];
+    $Password = $_POST['password'];
+
+    $result = loginAuth($username, $Password);
+
+    if ($result == 1) {
+        echo "<script> window.location.href = '../dashboard.php'</script>";
     } else {
-        echo "Not saved";
+        echo "<script> window.location.href = '../login.php?status=false'</script>";
     }
+
+    // echo "Your username is " .  $username . " and your password is " . $Password;
 }
+?>

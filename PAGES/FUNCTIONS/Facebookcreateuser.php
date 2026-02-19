@@ -1,44 +1,48 @@
 <?php
 
-include "../../config/include.php";
+include "../../CONFIG/includes.php";
 
+if (
+    isset($_POST['username']) && isset($_POST['email']) && isset($_POST['firstname']) && isset($_POST['lastname'])
+    && isset($_POST['mobile']) && isset($_POST['birthday']) && isset($_POST['gender']) && isset($_POST['password']) 
+    && isset($_POST['confirmpass'])
+) {
 
-if (isset($_POST['user_name']) && isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_name']) 
-    && isset($_POST['mobile_num']) && isset($_POST['birthdate']) && isset($_POST['gender']) && isset($_POST['password'])) {
-    $user_name = $_POST['user_name'];
+    $user_name = $_POST['username'];
     $email = $_POST['email'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $mobile_num = $_POST['mobile_num'];
-    $birthdate = $_POST['birthdate'];
+    $first_name = $_POST['firstname'];
+    $last_name = $_POST['lastname'];
+    $mobile_num = $_POST['mobile'];
+    $birthdate = $_POST['birthday'];
     $gender = $_POST['gender'];
     $password = $_POST['password'];
-    $confirm = $_POST['confirm_password'];
+    $confirmpass = $_POST['confirmpass'];
 
-    if ($password !== $confirm) {
+    if ($password !== $confirmpass) {       
         echo "<script> alert('Passwords do not match. Please try again.')</script>";
         exit();
     }
 
-    $sql = "INSERT INTO facebook_accounts (username, email, first_name, last_name, mobile_num, birthdate, gender, password)
+    $sql = "INSERT INTO facebook_accounts (username, email, first_name, last_name, mobile_num, birthday, gender, password)
             VALUES (
                 :username,
                 :email,
-                :first_name,
-                :last_name,
-                :mobile_num,
-                :birthdate,
+                :firstname,
+                :lastname,
+                :mobile,
+                :birthday,
                 :gender,
                 :password)";
 
     $stmnt = $conn->prepare($sql);
+
     $stmnt->execute([
-        "username" => $user_name,
+        "username" => $user_name,     
         "email" => $email,
-        "first_name" => $first_name,
-        "last_name" => $last_name,
-        "mobile_num" => $mobile_num,
-        "birthdate" => $birthdate,
+        "firstname" => $first_name,   
+        "lastname" => $last_name,     
+        "mobile" => $mobile_num,      
+        "birthday" => $birthdate,
         "gender" => $gender,
         "password" => $password
     ]);

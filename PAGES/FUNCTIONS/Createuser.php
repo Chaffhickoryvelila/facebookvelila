@@ -1,20 +1,33 @@
 <?php
 
-include '../../config/include.php';
+include "../../CONFIG/includes.php";
 
-if (isset($_POST['user_name']) && isset($_POST['password'])) {
+if (isset($_POST['email']) && isset($_POST['password'])) {
 
-    $username = $_POST['user_name'];
-    $Password = $_POST['password'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    $result = loginAuth($username, $Password);
+    $sql = "SELECT * FROM facebook_accounts WHERE email = :email AND password = :password";
+    $stmnt = $conn->prepare($sql);
+    $stmnt->execute(["email" => $email,
+    "password" => $password]);
 
-    if ($result == 1) {
-        echo "<script> window.location.href = '../dashboard.php'</script>";
+    $user = $stmnt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+
+        if ($password === $user['password']) {
+
+            echo "<script>window.location.href = '../Dashboard.php';</script>";
+        } else {
+            
+            echo "<script>alert('Incorrect password. Please try again.');</script>";
+        }
+
     } else {
-        echo "<script> window.location.href = '../login.php?status=false'</script>";
+        echo "<script>alert('Email not found. Please check and try again.');</script>";
     }
-
-    // echo "Your username is " .  $username . " and your password is " . $Password;
+}else{
+  echo "mali akoang code";
 }
 ?>

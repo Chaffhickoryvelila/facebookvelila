@@ -2,17 +2,32 @@
 
 include "../../CONFIG/includes.php";
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+if (isset($_POST['email']) && isset($_POST['password'])) {
 
-  $result = loginAuth($username, $password);
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-  if ($result >0) {
-    echo "<script> window .location.href = '../Dashboard.php?name='user''</script>";
-  } else {
-    echo "<script> window .location.href = '../login.php?status=false ' </script>";
-  }
+    $sql = "SELECT * FROM facebook_accounts WHERE email = :email AND password = :password";
+    $stmnt = $conn->prepare($sql);
+    $stmnt->execute(["email" => $email,
+    "password" => $password]);
 
-  echo " Your username is " . $username . " and your password is " . $password;
+    $user = $stmnt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+
+        if ($password === $user['password']) {
+
+            echo "<script>window.location.href = '../Dashboard.php';</script>";
+        } else {
+            
+            echo "<script>alert('Incorrect password. Please try again.');</script>";
+        }
+
+    } else {
+        echo "<script>alert('Email not found. Please check and try again.');</script>";
+    }
+}else{
+  echo "mali akoang code";
 }
+?>

@@ -1,7 +1,6 @@
-
 <?php
-if(isset($_GET['status']) && $_GET ['status'] == "false" ){
-    echo"<script> alert('Username and Password is incorrect')</script>";
+if (isset($_GET['status']) && $_GET['status'] == "false") {
+    echo "<script> alert('Username and Password is incorrect')</script>";
 }
 
 ?>
@@ -18,14 +17,14 @@ if(isset($_GET['status']) && $_GET ['status'] == "false" ){
 
 
     <style>
-    body {
-      background-image: url("http://www.pixelstalk.net/wp-content/uploads/2016/03/Free-download-Nature-wallpaper-HD.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-  </style>
+        body {
+            background-image: url("http://www.pixelstalk.net/wp-content/uploads/2016/03/Free-download-Nature-wallpaper-HD.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+    </style>
 
 </head>
 
@@ -67,4 +66,5 @@ if(isset($_GET['status']) && $_GET ['status'] == "false" ){
     </script>
 
 </body>
+
 </html>

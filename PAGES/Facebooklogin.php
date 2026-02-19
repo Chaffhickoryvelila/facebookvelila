@@ -18,7 +18,7 @@
     </div>
 
     <div class="div1">
-        <form action="FUNCTIONS/LoginFunction.php" method="POST">
+        <form action="FUNCTIONS/Createuser.php" method="POST">
             <input id="email" name="email" type="text" class="text" placeholder="Email or phone Number"> <br> <br>
 
             <input id="password" name="password" type="password" class="password" placeholder="Password"> <br>

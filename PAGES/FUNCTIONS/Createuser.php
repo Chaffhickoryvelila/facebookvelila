@@ -7,27 +7,23 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM facebook_accounts WHERE email = :email AND password = :password";
+    $sql = "SELECT * FROM facebook_accounts WHERE username = :username AND password = :password";
     $stmnt = $conn->prepare($sql);
-    $stmnt->execute(["email" => $email,
-    "password" => $password]);
+    $stmnt->execute([
+        "username" => $email,
+        "password" => $password
+    ]);
 
-    $user = $stmnt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
+    $user =  $count = $stmnt->rowCount();
 
-        if ($password === $user['password']) {
-
-            echo "<script>window.location.href = '../Dashboard.php';</script>";
-        } else {
-            
-            echo "<script>alert('Incorrect password. Please try again.');</script>";
-        }
-
+    echo $user;
+    
+    if ($user > 0) {
+        echo "<script>window.location.href = '../Dashboard.php';</script>";
     } else {
         echo "<script>alert('Email not found. Please check and try again.');</script>";
     }
-}else{
-  echo "mali akoang code";
+} else {
+    echo "mali akoang code";
 }
-?>
